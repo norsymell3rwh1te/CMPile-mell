@@ -40,7 +40,7 @@ RUN set -ex \
 COPY --chown=folding:folding entrypoint.sh /opt/fahclient
 COPY config.sh /config.sh
 USER folding
-WORKDIR /opt/fahclient
+#WORKDIR /opt/fahclient
 
 ENV USER "Anonymous"
 ENV TEAM "0"
@@ -48,12 +48,12 @@ ENV ENABLE_GPU "false"
 ENV ENABLE_SMP "true"
 ENV POWER "full"
 
-
+RUN ls
 
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
-WORKDIR /root
-RUN ls
+
+
 
 
 
