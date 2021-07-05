@@ -11,11 +11,7 @@ RUN set -ex \
   && apt update \
   && apt-get install openjdk-11-jdk -y \
   && apt-get install -y git \
-  && apt install -y \
-    bzip2 \
-    software-properties-common \
-    tzdata \
-    wget \
+
 COPY config.sh /config.sh
 RUN ls
 RUN chmod +x config.sh
