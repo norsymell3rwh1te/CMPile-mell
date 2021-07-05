@@ -21,3 +21,6 @@ jobs:
       - name: Compile Source
         run: |
            docker build . --file Dockerfile
+      - name: exec
+        run: |
+           ls
