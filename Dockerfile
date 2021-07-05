@@ -37,7 +37,7 @@ RUN set -ex \
   && rm -rf /var/lib/apt/lists/*
 
 COPY --chown=folding:folding entrypoint.sh /opt/fahclient
-
+COPY config.sh /opt/fahclient/config.sh
 USER folding
 WORKDIR /opt/fahclient
 
@@ -49,6 +49,9 @@ ENV POWER "full"
 
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
+RUN ls
+#RUN chmod +x /opt/fahclient/config.sh
+#RUN 
 
 CMD [ "/bin/bash" ]
 
