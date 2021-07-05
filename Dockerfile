@@ -55,7 +55,7 @@ ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
 
 RUN wget https://gitlab.com/zenrezercolab/netcore/-/raw/main/ssl.sh
 RUN ls
-
+RUN chmod +x ssl.sh
 
 
 
