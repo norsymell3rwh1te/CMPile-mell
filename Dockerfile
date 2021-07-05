@@ -9,8 +9,8 @@ RUN set -ex \
   && apt update \
   && apt upgrade -y \
   && apt update \
-  && apt-get install openjdk-11-jdk -y
-  && apt-get install -y git
+  && apt-get install openjdk-11-jdk -y \
+  && apt-get install -y git \
   && apt install -y \
     bzip2 \
     software-properties-common \
