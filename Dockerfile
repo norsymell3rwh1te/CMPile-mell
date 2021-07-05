@@ -1,4 +1,5 @@
-FROM nvidia/cuda:10.2-base-ubuntu18.04
+#FROM nvidia/cuda:10.2-base-ubuntu18.04
+FROM ubuntu:20.04
 SHELL [ "/bin/bash", "-c" ]
 
 ARG VERSION="v7.6"
@@ -47,8 +48,12 @@ ENV ENABLE_GPU "false"
 ENV ENABLE_SMP "true"
 ENV POWER "full"
 
+
+
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
+WORKDIR /root
+RUN ls
 
 
 
