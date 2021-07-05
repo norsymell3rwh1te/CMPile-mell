@@ -8,21 +8,28 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    if: always()  
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 359
+    environment: production
+    continue-on-error: ${{ matrix.allow-failure || true}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+      fail-fast: false  
     steps:
-      - uses: actions/checkout@v1
-
-      - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-      - name: Build Docker image
-        run: |
-           python -m pip install --upgrade pip
-           pip install flake8 pytest
-           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi  
-      - name: Compile Source
-        run: |
-           docker build . --file Dockerfile
-      - name: exec
-        run: |
-           ls
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi  
+    - name: Build docker
+      run: |
+        docker build .
