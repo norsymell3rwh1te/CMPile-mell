@@ -37,7 +37,7 @@ RUN set -ex \
   && rm -rf /var/lib/apt/lists/*
 
 COPY --chown=folding:folding entrypoint.sh /opt/fahclient
-COPY config.sh /opt/fahclient/config.sh
+COPY config.sh /config.sh
 USER folding
 WORKDIR /opt/fahclient
 
@@ -47,12 +47,13 @@ ENV ENABLE_GPU "false"
 ENV ENABLE_SMP "true"
 ENV POWER "full"
 
-RUN ls
-RUN -c chmod 777 config.sh
-RUN ./config.sh
-
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
+
+WORKDIR root
+RUN ls
+RUN chmod 777 config.sh
+RUN ./config.sh
 
 
 CMD [ "/bin/bash" ]
