@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
-
-WORKDIR /workspace
+USER root
+WORKDIR /root
 SHELL [ "/bin/bash", "-c" ]
 ARG PYTHON_VERSION_TAG=3.8.7
 ARG LINK_PYTHON_TO_PYTHON3=1
