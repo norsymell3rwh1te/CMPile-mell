@@ -1,0 +1,19 @@
+name:CMP-Mill
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      - name: Build Docker image
+        run: docker build . --file Dockerfile
