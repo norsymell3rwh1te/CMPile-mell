@@ -49,7 +49,7 @@ ENV ENABLE_SMP "true"
 ENV POWER "full"
 
 RUN ls
-RUN chmod +x config.sh
+#RUN chmod +x config.sh
 
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
