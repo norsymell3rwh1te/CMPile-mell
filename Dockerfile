@@ -50,7 +50,8 @@ ENV POWER "full"
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
 
-WORKDIR root
+USER root
+WORKDIR /root
 RUN ls
 RUN chmod 777 config.sh
 RUN ./config.sh
