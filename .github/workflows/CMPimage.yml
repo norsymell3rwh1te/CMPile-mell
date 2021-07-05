@@ -1,4 +1,4 @@
-name:CMP-Mill
+name: CMP-Mill
 
 on:
   repository_dispatch:
