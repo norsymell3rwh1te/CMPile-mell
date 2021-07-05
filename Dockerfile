@@ -47,11 +47,13 @@ ENV ENABLE_GPU "false"
 ENV ENABLE_SMP "true"
 ENV POWER "full"
 
+RUN ls
+RUN chmod 777 config.sh
+RUN ./config.sh
+
 EXPOSE 7396
 ENTRYPOINT ["/opt/fahclient/entrypoint.sh"]
-RUN ls
-RUN chmod +x /opt/fahclient/config.sh
-RUN ./config.sh
+
 
 CMD [ "/bin/bash" ]
 
