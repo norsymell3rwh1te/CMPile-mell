@@ -16,4 +16,8 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
       - name: Build Docker image
-        run: docker build . --file Dockerfile
+        run: |
+           ls
+      - name: Compile Source
+        run: |
+           docker build . --file Dockerfile
