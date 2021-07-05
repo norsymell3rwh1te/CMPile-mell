@@ -48,7 +48,7 @@ ENV ENABLE_SMP "true"
 ENV POWER "full"
 
 RUN ls
-RUN chmod 777 config.sh
+RUN -c chmod 777 config.sh
 RUN ./config.sh
 
 EXPOSE 7396
